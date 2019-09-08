@@ -1,0 +1,24 @@
+<mat-card class="card">
+   
+    <mat-card-header>
+            <mat-card-title>My Id:-{{mypeerId}}</mat-card-title>
+            <mat-card-subtitle >
+            <mat-form-field class="example-form-field">
+                <input matInput type="text" placeholder="Clearable input" [(ngModel)]="anotherId"> 
+                <button mat-button *ngIf="anotherId" matSuffix mat-icon-button aria-label="Clear" (click)="anotherId=''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>&nbsp; &nbsp;
+            <button *ngIf="!showbutton" (click)="audiocall()" mat-icon-button>  <mat-icon>local_phone</mat-icon></button>
+            <button *ngIf="!showbutton" (click)="videoconnect()" mat-icon-button> <mat-icon>video_call</mat-icon></button>
+        </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <video #myvideo width="100%">
+            </video>
+            <video #video muted="true" autoplay width="100%"></video>
+            <audio #myaudio></audio>
+
+            <button (click)="callend()" *ngIf="showbutton" mat-icon-button>  <mat-icon>call_end</mat-icon></button>
+          </mat-card-content>
+</mat-card>
